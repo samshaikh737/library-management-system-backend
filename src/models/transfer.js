@@ -1,0 +1,35 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/database');
+
+const Transfer = sequelize.define('Transfer', {
+    bookId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Books',
+            key: 'id'
+        },
+        allowNull: false
+    },
+    fromBranchId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Branches',
+            key: 'id'
+        },
+        allowNull: false
+    },
+    toBranchId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Branches',
+            key: 'id'
+        },
+        allowNull: false
+    },
+    transferDate: {
+        type: DataTypes.DATE,
+        allowNull: false
+    }
+});
+
+module.exports = Transfer;
