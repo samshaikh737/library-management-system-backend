@@ -4,7 +4,7 @@ const router = express.Router();
 // Import route files
 const bookRoutes = require('./bookRoutes');
 const branchRoutes = require('./branchRoutes');
-// const userRoutes = require('./userRoutes');
+const userRoutes = require('./userRoutes');
 // const checkoutRoutes = require('./checkoutRoutes');
 // const reservationRoutes = require('./reservationRoutes');
 // const transferRoutes = require('./transferRoutes');
@@ -14,7 +14,7 @@ const branchRoutes = require('./branchRoutes');
 const routes = [
   { path: '/books', route: bookRoutes },
   { path: '/branches', route: branchRoutes },
-  // { path: '/users', route: userRoutes },
+  { path: '/users', route: userRoutes },
   // { path: '/checkouts', route: checkoutRoutes },
   // { path: '/reservations', route: reservationRoutes },
   // { path: '/transfers', route: transferRoutes },

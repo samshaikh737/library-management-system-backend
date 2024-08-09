@@ -2,9 +2,8 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const User = sequelize.define('User', {
-    username: {
+    name: {
         type: DataTypes.STRING,
-        unique: true,
         allowNull: false
     },
     email: {
@@ -12,13 +11,13 @@ const User = sequelize.define('User', {
         unique: true,
         allowNull: false
     },
-    passwordHash: {
+    phone: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
-    createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
+    role: {
+        type: DataTypes.ENUM('librarian', 'member'),
+        allowNull: false
     }
 });
 
