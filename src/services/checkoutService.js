@@ -39,10 +39,6 @@ const getAllCheckouts = async (filters = {}) => {
 
         const checkouts = await Checkout.findAll(filteredQuery);
 
-        if (!checkouts.length) {
-            throw new ApiError(404, 'No checkouts found');
-        }
-
         return checkouts;
     } catch (error) {
         throw new ApiError(500, error.message);
@@ -78,6 +74,19 @@ const createCheckout = async (data) => {
 
         if (!user || !book) {
             throw new ApiError(400, 'User or Book not found');
+        }
+
+        // Check if the user already has an active checkout for this book
+        const activeCheckout = await Checkout.findOne({
+            where: {
+                userId,
+                bookId,
+                status: 'checked_out'
+            }
+        });
+
+        if (activeCheckout) {
+            throw new ApiError(400, 'User already has an active checkout for this book');
         }
 
         // Check if the book is available
