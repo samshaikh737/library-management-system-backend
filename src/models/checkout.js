@@ -2,20 +2,12 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Checkout = sequelize.define('Checkout', {
-    bookId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'Books',
-            key: 'id'
-        },
-        allowNull: false
-    },
     userId: {
         type: DataTypes.INTEGER,
-        references: {
-            model: 'Users',
-            key: 'id'
-        },
+        allowNull: false
+    },
+    bookId: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     checkoutDate: {
@@ -23,7 +15,12 @@ const Checkout = sequelize.define('Checkout', {
         allowNull: false
     },
     returnDate: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        allowNull: true
+    },
+    status: {
+        type: DataTypes.ENUM('checked_out', 'returned'),
+        allowNull: false
     }
 });
 
