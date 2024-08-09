@@ -2,12 +2,20 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
 const Checkout = sequelize.define('Checkout', {
-    userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
     bookId: {
         type: DataTypes.INTEGER,
+        references: {
+            model: 'Books',
+            key: 'id'
+        },
+        allowNull: false
+    },
+    userId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Users',
+            key: 'id'
+        },
         allowNull: false
     },
     checkoutDate: {
