@@ -46,7 +46,14 @@ const updateCheckout = async (req, res) => {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
 };
-
+const returnCheckout = async (req, res) => {
+    try {
+        await checkoutService.returnBook(req.params.id);
+        res.status(200).json({message: "Return successfully"});
+    } catch (error) {
+        res.status(error.statusCode || 500).json({ error: error.message });
+    }
+};
 const deleteCheckout = async (req, res) => {
     try {
         await checkoutService.deleteCheckout(req.params.id);
@@ -61,5 +68,6 @@ module.exports = {
     getCheckoutById,
     createCheckout,
     updateCheckout,
+    returnCheckout,
     deleteCheckout
 };

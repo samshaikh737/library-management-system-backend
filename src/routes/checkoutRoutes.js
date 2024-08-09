@@ -8,4 +8,6 @@ router.post('/', checkoutController.createCheckout);
 router.put('/:id', checkoutController.updateCheckout);
 router.delete('/:id', checkoutController.deleteCheckout);
 
+router.post('/return/:id', checkoutController.returnCheckout);
+
 module.exports = router;

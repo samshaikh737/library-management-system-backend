@@ -68,7 +68,6 @@ const getCheckoutById = async (id) => {
         throw new ApiError(500, error.message);
     }
 };
-
 const createCheckout = async (data) => {
     try {
         const { userId, bookId, checkoutDate, returnDate, status } = data;
@@ -81,6 +80,15 @@ const createCheckout = async (data) => {
             throw new ApiError(400, 'User or Book not found');
         }
 
+        // Check if the book is available
+        if (book.quantity <= 0) {
+            throw new ApiError(400, 'Book is not available');
+        }
+
+        // Decrement the book quantity
+        await book.update({ quantity: book.quantity - 1 });
+
+        // Create the new checkout record
         const newCheckout = await Checkout.create({
             userId,
             bookId,
@@ -95,6 +103,7 @@ const createCheckout = async (data) => {
     }
 };
 
+
 const updateCheckout = async (id, data) => {
     try {
         const checkout = await Checkout.findByPk(id);
@@ -108,6 +117,22 @@ const updateCheckout = async (id, data) => {
     } catch (error) {
         throw new ApiError(500, error.message);
     }
+};
+const returnBook = async (checkoutId) => {
+    const checkout = await Checkout.findByPk(checkoutId);
+    if (!checkout) {
+        throw new Error('Checkout record not found');
+    }
+
+    const book = await Book.findByPk(checkout.bookId);
+    if (!book) {
+        throw new Error('Book not found');
+    }
+
+    await book.update({ quantity: book.quantity + 1 });
+
+    // Proceed with updating the checkout record
+    await checkout.update({ status: 'returned' });
 };
 
 const deleteCheckout = async (id) => {
@@ -129,5 +154,6 @@ module.exports = {
     getCheckoutById,
     createCheckout,
     updateCheckout,
+    returnBook,
     deleteCheckout
 };
