@@ -1,6 +1,5 @@
 const { Checkout, User, Book } = require('../models');
 const ApiError = require('../utils/ApiError');
-
 const { Op } = require('sequelize');
 
 const applyFilters = (query, filters) => {
@@ -68,9 +67,10 @@ const getCheckoutById = async (id) => {
         throw new ApiError(500, error.message);
     }
 };
+
 const createCheckout = async (data) => {
     try {
-        const { userId, bookId, checkoutDate, returnDate, status } = data;
+        const { userId, bookId, checkoutDate, returnDate } = data;
 
         // Check if the user and book exist
         const user = await User.findByPk(userId);
@@ -85,8 +85,11 @@ const createCheckout = async (data) => {
             throw new ApiError(400, 'Book is not available');
         }
 
-        // Decrement the book quantity
-        await book.update({ quantity: book.quantity - 1 });
+        // Decrement the book quantity and update its status if needed
+        await book.update({
+            quantity: book.quantity - 1,
+            status: book.quantity - 1 > 0 ? 'available' : 'checked_out'
+        });
 
         // Create the new checkout record
         const newCheckout = await Checkout.create({
@@ -94,7 +97,7 @@ const createCheckout = async (data) => {
             bookId,
             checkoutDate,
             returnDate,
-            status
+            status: 'checked_out'
         });
 
         return newCheckout;
@@ -102,7 +105,6 @@ const createCheckout = async (data) => {
         throw new ApiError(500, error.message);
     }
 };
-
 
 const updateCheckout = async (id, data) => {
     try {
@@ -118,21 +120,32 @@ const updateCheckout = async (id, data) => {
         throw new ApiError(500, error.message);
     }
 };
+
 const returnBook = async (checkoutId) => {
-    const checkout = await Checkout.findByPk(checkoutId);
-    if (!checkout) {
-        throw new Error('Checkout record not found');
+    try {
+        const checkout = await Checkout.findByPk(checkoutId);
+        if (!checkout) {
+            throw new ApiError(404, 'Checkout record not found');
+        }
+
+        const book = await Book.findByPk(checkout.bookId);
+        if (!book) {
+            throw new ApiError(404, 'Book not found');
+        }
+
+        // Increment the book quantity and update its status if needed
+        await book.update({
+            quantity: book.quantity + 1,
+            status: 'available'
+        });
+
+        // Proceed with updating the checkout record
+        await checkout.update({ status: 'returned' });
+
+        return checkout;
+    } catch (error) {
+        throw new ApiError(500, error.message);
     }
-
-    const book = await Book.findByPk(checkout.bookId);
-    if (!book) {
-        throw new Error('Book not found');
-    }
-
-    await book.update({ quantity: book.quantity + 1 });
-
-    // Proceed with updating the checkout record
-    await checkout.update({ status: 'returned' });
 };
 
 const deleteCheckout = async (id) => {
