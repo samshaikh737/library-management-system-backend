@@ -2,6 +2,7 @@ const Joi = require('joi');
 
 const validateCreateCheckout = (data) => {
     const schema = Joi.object({
+        branchId: Joi.number().integer().required(),
         userId: Joi.number().integer().required(),
         bookId: Joi.number().integer().required(),
         checkoutDate: Joi.date().required(),

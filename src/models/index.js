@@ -18,9 +18,15 @@ User.belongsTo(Branch, { foreignKey: 'branchId' });
 
 Book.hasMany(Checkout, { foreignKey: 'bookId' });
 Checkout.belongsTo(Book, { foreignKey: 'bookId' });
+Checkout.belongsTo(Branch, { foreignKey: 'branchId' });
 
 Branch.hasMany(Book, { foreignKey: 'branchId' });
 Book.belongsTo(Branch, { foreignKey: 'branchId' });
+
+
+Transfer.belongsTo(Branch, { as: 'fromBranch', foreignKey: 'fromBranchId' });
+Transfer.belongsTo(Branch, { as: 'toBranch', foreignKey: 'toBranchId' });
+Transfer.belongsTo(Book, { foreignKey: 'bookId' });
 
 // Similarly, set up associations for Reservation and Transfer models if needed
 

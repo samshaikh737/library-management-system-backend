@@ -1,4 +1,4 @@
-const { Checkout, User, Book } = require('../models');
+const { Checkout, User, Book, Branch } = require('../models');
 const ApiError = require('../utils/ApiError');
 const { Op } = require('sequelize');
 
@@ -11,6 +11,9 @@ const applyFilters = (query, filters) => {
     }
     if (filters.bookId) {
         query.where.bookId = filters.bookId;
+    }
+    if (filters.branchId) {
+        query.where.branchId = filters.branchId;
     }
     if (filters.status) {
         query.where.status = filters.status;
@@ -28,6 +31,7 @@ const getAllCheckouts = async (filters = {}) => {
     try {
         const query = {
             include: [
+                { model: Branch, attributes: ['id', 'name'] },
                 { model: User, attributes: ['id', 'name'] },
                 { model: Book, attributes: ['id', 'title', 'author'] }
             ],
@@ -66,7 +70,7 @@ const getCheckoutById = async (id) => {
 
 const createCheckout = async (data) => {
     try {
-        const { userId, bookId, checkoutDate, returnDate } = data;
+        const { userId, bookId, branchId, checkoutDate, returnDate } = data;
 
         // Check if the user and book exist
         const user = await User.findByPk(userId);
@@ -104,6 +108,7 @@ const createCheckout = async (data) => {
         const newCheckout = await Checkout.create({
             userId,
             bookId,
+            branchId,
             checkoutDate,
             returnDate,
             status: 'checked_out'

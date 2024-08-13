@@ -6,30 +6,34 @@ const Transfer = sequelize.define('Transfer', {
         type: DataTypes.INTEGER,
         references: {
             model: 'Books',
-            key: 'id'
+            key: 'id',
         },
-        allowNull: false
+        allowNull: false,
     },
     fromBranchId: {
         type: DataTypes.INTEGER,
         references: {
             model: 'Branches',
-            key: 'id'
+            key: 'id',
         },
-        allowNull: false
+        allowNull: false,
     },
     toBranchId: {
         type: DataTypes.INTEGER,
         references: {
             model: 'Branches',
-            key: 'id'
+            key: 'id',
         },
-        allowNull: false
+        allowNull: false,
+    },
+    quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
     },
     transferDate: {
         type: DataTypes.DATE,
-        allowNull: false
-    }
+        defaultValue: DataTypes.NOW,
+    },
 });
 
 module.exports = Transfer;

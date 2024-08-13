@@ -26,7 +26,7 @@ const createBook = async (bookData) => {
     try {
         return await Book.create(bookData);
     } catch (error) {
-        throw new ApiError(500, 'Unable to create book', true, error.stack);
+        throw new ApiError(500, error.errors.map(d => d.message).join(', '));
     }
 };
 

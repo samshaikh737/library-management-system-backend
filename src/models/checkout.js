@@ -18,6 +18,14 @@ const Checkout = sequelize.define('Checkout', {
         },
         allowNull: false
     },
+    branchId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Branches',
+            key: 'id'
+        },
+        allowNull: true
+    },
     checkoutDate: {
         type: DataTypes.DATE,
         allowNull: false

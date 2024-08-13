@@ -7,9 +7,7 @@ const branchRoutes = require('./branchRoutes');
 const userRoutes = require('./userRoutes');
 const checkoutRoutes = require('./checkoutRoutes');
 const analyticsRoutes = require('./analyticsRoutes');
-// const reservationRoutes = require('./reservationRoutes');
-// const transferRoutes = require('./transferRoutes');
-// const auditLogRoutes = require('./auditLogRoutes');
+const transferRoutes = require('./transferRoutes');
 
 // Define route configuration array
 const routes = [
@@ -18,8 +16,9 @@ const routes = [
   { path: '/users', route: userRoutes },
   { path: '/checkouts', route: checkoutRoutes },
   { path: '/analytics', route: analyticsRoutes },
+  { path: '/transfer', route: transferRoutes },
+
   // { path: '/reservations', route: reservationRoutes },
-  // { path: '/transfers', route: transferRoutes },
   // { path: '/auditlogs', route: auditLogRoutes },
 ];
 
