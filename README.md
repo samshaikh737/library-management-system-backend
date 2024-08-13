@@ -43,6 +43,61 @@ Create a `config.env` file in the src/config/config.env directory and add the fo
   PORT=3000
 
 ```
+
+
+## Database Setup
+
+### If PostgreSQL Already Installed Locally
+
+If PostgreSQL is already installed on your local machine, follow these steps:
+
+- Open your terminal and run the following command to log in to PostgreSQL:
+
+``` bash
+  psql -U my_postgres_db
+```
+You'll be prompted to enter the password (mysecretpassword) or your db password.
+
+- Create the Database:
+
+Once inside the PostgreSQL shell, create the database using:
+
+```bash
+  CREATE DATABASE library_db;
+```
+
+### Or Setup PostgreSQL with Docker
+
+If you prefer to run PostgreSQL using Docker, follow these steps:
+
+``` bash
+  docker pull postgres
+```
+Run the PostgreSQL Container:
+
+- Create the Database:
+
+Use the following command to create and run a PostgreSQL container with the specified credentials:
+
+```bash
+  docker run --name my_postgres_db -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_USER=my_postgres_db -e POSTGRES_DB=library_db -p 5432:5432 -d postgres
+```
+
+#### This command does the following:
+
+- Creates and names the container my_postgres_db.
+- Sets the PostgreSQL user to my_postgres_db and the password to mysecretpassword.
+- Automatically creates a database named library_db.
+- Exposes PostgreSQL on port 5432.
+
+#### Access the PostgreSQL Shell Inside the Container (if needed):
+
+If you need to perform additional operations, access the PostgreSQL shell:
+
+``` bash
+  docker exec -it my_postgres_db psql -U my_postgres_db -d library_db
+```
+
 ## Run Locally
 
 Run using npm.
