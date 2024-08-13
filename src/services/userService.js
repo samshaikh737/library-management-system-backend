@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const ApiError = require('../utils/ApiError');
+const { Op } = require('sequelize');
 
 const getAllUsers = async (filters = {}) => {
     const { name, email, phone, role } = filters;
