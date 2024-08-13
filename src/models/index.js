@@ -13,6 +13,9 @@ const Transfer = require('./transfer');
 User.hasMany(Checkout, { foreignKey: 'userId' });
 Checkout.belongsTo(User, { foreignKey: 'userId' });
 
+User.belongsTo(Branch, { foreignKey: 'branchId' });
+
+
 Book.hasMany(Checkout, { foreignKey: 'bookId' });
 Checkout.belongsTo(Book, { foreignKey: 'bookId' });
 

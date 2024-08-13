@@ -18,7 +18,15 @@ const User = sequelize.define('User', {
     role: {
         type: DataTypes.ENUM('librarian', 'member'),
         allowNull: false
-    }
+    },
+    branchId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Branches',
+            key: 'id'
+        },
+        allowNull: true
+    },
 });
 
 module.exports = User;

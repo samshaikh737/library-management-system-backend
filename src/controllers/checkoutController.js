@@ -48,8 +48,12 @@ const updateCheckout = async (req, res) => {
 };
 const returnCheckout = async (req, res) => {
     try {
-        await checkoutService.returnBook(req.params.id);
-        res.status(200).json({message: "Return successfully"});
+        const { error } = validateUpdateCheckout(req.body);
+        if (error) {
+            return res.status(400).json({ error: error.details.map(d => d.message).join(', ') });
+        }
+        await checkoutService.returnBook(req.params.id, req.body.returnDate);
+        res.status(200).json({ message: "Return successfully" });
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }

@@ -1,9 +1,11 @@
 const User = require('../models/user');
+const Branch = require('../models/branch');
+
 const ApiError = require('../utils/ApiError');
 const { Op } = require('sequelize');
 
 const getAllUsers = async (filters = {}) => {
-    const { name, email, phone, role } = filters;
+    const { name, email, phone, role,branchId } = filters;
 
     // Build query object for filtering
     const query = {};
@@ -11,8 +13,14 @@ const getAllUsers = async (filters = {}) => {
     if (email) query.email = { [Op.iLike]: `%${email}%` };
     if (phone) query.phone = { [Op.iLike]: `%${phone}%` };
     if (role) query.role = role;
+    if (branchId) query.branchId = branchId;
 
-    return User.findAll({ where: query });
+    return User.findAll({
+        where: query, 
+        include: [
+            { model: Branch, attributes: ['id', 'name'] },
+        ],
+    });
 };
 
 const getUserById = async (id) => {

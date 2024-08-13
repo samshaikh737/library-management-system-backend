@@ -13,7 +13,6 @@ const validateCreateCheckout = (data) => {
 
 const validateUpdateCheckout = (data) => {
     const schema = Joi.object({
-        checkoutDate: Joi.date().optional(),
         returnDate: Joi.date().optional(),
         status: Joi.string().valid('checked_out', 'returned').optional()
     });

@@ -130,7 +130,7 @@ const updateCheckout = async (id, data) => {
     }
 };
 
-const returnBook = async (checkoutId) => {
+const returnBook = async (checkoutId, returnDate) => {
     try {
         const checkout = await Checkout.findByPk(checkoutId);
         if (!checkout) {
@@ -149,7 +149,7 @@ const returnBook = async (checkoutId) => {
         });
 
         // Proceed with updating the checkout record
-        await checkout.update({ status: 'returned' });
+        await checkout.update({ status: 'returned', returnDate });
 
         return checkout;
     } catch (error) {
