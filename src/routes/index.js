@@ -6,6 +6,7 @@ const bookRoutes = require('./bookRoutes');
 const branchRoutes = require('./branchRoutes');
 const userRoutes = require('./userRoutes');
 const checkoutRoutes = require('./checkoutRoutes');
+const analyticsRoutes = require('./analyticsRoutes');
 // const reservationRoutes = require('./reservationRoutes');
 // const transferRoutes = require('./transferRoutes');
 // const auditLogRoutes = require('./auditLogRoutes');
@@ -16,6 +17,7 @@ const routes = [
   { path: '/branches', route: branchRoutes },
   { path: '/users', route: userRoutes },
   { path: '/checkouts', route: checkoutRoutes },
+  { path: '/analytics', route: analyticsRoutes },
   // { path: '/reservations', route: reservationRoutes },
   // { path: '/transfers', route: transferRoutes },
   // { path: '/auditlogs', route: auditLogRoutes },
