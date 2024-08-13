@@ -1,17 +1,21 @@
 const branchService = require('../services/branchService');
 const { validateCreateBranch, validateUpdateBranch } = require('../validations/branchValidation');
 const ApiError = require('../utils/ApiError');
+const { Op } = require('sequelize');
 
 const getAllBranches = async (req, res) => {
     try {
         // Extract query parameters
-        const { city, state, zipCode } = req.query;
+        const { name,city, state, zipCode, address } = req.query;
 
         // Build filter object
         const filters = {};
-        if (city) filters.city = city;
-        if (state) filters.state = state;
-        if (zipCode) filters.zipCode = zipCode;
+        if (name) filters.name = { [Op.iLike]: `%${name}%` }; 
+        if (city) filters.city = { [Op.iLike]: `%${city}%` }; 
+        if (state) filters.state = { [Op.iLike]: `%${state}%` }; 
+        if (address) filters.address = { [Op.iLike]: `%${address}%` }; 
+        if (zipCode) filters.zipCode = { [Op.iLike]: `%${zipCode}%` }; 
+
 
         const branches = await branchService.getAllBranches(filters);
         res.status(200).json(branches);
