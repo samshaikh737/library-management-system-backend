@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "title": "The White Tiger",
         "author": "Aravind Adiga",
         "genre": "fiction",
@@ -11,7 +10,6 @@
         "isbn": "978-1-59420-228-2"
     },
     {
-        "id": 2,
         "title": "A Fine Balance",
         "author": "Rohinton Mistry",
         "genre": "fiction",
@@ -22,7 +20,6 @@
         "isbn": "978-0-375-40158-4"
     },
     {
-        "id": 3,
         "title": "Midnight's Children",
         "author": "Salman Rushdie",
         "genre": "fiction",
@@ -33,7 +30,6 @@
         "isbn": "978-0-571-22782-3"
     },
     {
-        "id": 4,
         "title": "The God of Small Things",
         "author": "Arundhati Roy",
         "genre": "fiction",
@@ -44,7 +40,6 @@
         "isbn": "978-1-86049-377-4"
     },
     {
-        "id": 5,
         "title": "The Immortals of Meluha",
         "author": "Amish Tripathi",
         "genre": "fiction",
@@ -55,7 +50,6 @@
         "isbn": "978-93-85013-60-7"
     },
     {
-        "id": 6,
         "title": "Five Point Someone",
         "author": "Chetan Bhagat",
         "genre": "fiction",
@@ -66,7 +60,6 @@
         "isbn": "978-81-8400-130-4"
     },
     {
-        "id": 7,
         "title": "To Kill a Mockingbird",
         "author": "Harper Lee",
         "genre": "fiction",
@@ -77,7 +70,6 @@
         "isbn": "978-0-06-112008-4"
     },
     {
-        "id": 8,
         "title": "1984",
         "author": "George Orwell",
         "genre": "fiction",
@@ -88,7 +80,6 @@
         "isbn": "978-0-452-28423-4"
     },
     {
-        "id": 9,
         "title": "The Alchemist",
         "author": "Paulo Coelho",
         "genre": "fiction",
@@ -99,7 +90,6 @@
         "isbn": "978-0-06-231500-7"
     },
     {
-        "id": 10,
         "title": "Sapiens: A Brief History of Humankind",
         "author": "Yuval Noah Harari",
         "genre": "non-fiction",
@@ -110,7 +100,6 @@
         "isbn": "978-0062316119"
     },
     {
-        "id": 11,
         "title": "Educated",
         "author": "Tara Westover",
         "genre": "non-fiction",
@@ -121,7 +110,6 @@
         "isbn": "978-0399590504"
     },
     {
-        "id": 12,
         "title": "Becoming",
         "author": "Michelle Obama",
         "genre": "non-fiction",
@@ -132,7 +120,6 @@
         "isbn": "978-1524763138"
     },
     {
-        "id": 13,
         "title": "The Subtle Art of Not Giving a F*ck",
         "author": "Mark Manson",
         "genre": "non-fiction",
@@ -143,7 +130,6 @@
         "isbn": "978-0062457714"
     },
     {
-        "id": 14,
         "title": "The Power of Habit",
         "author": "Charles Duhigg",
         "genre": "non-fiction",
@@ -154,7 +140,6 @@
         "isbn": "978-0812981605"
     },
     {
-        "id": 15,
         "title": "The Catcher in the Rye",
         "author": "J.D. Salinger",
         "genre": "fiction",
@@ -165,7 +150,6 @@
         "isbn": "978-0316769488"
     },
     {
-        "id": 16,
         "title": "The Da Vinci Code",
         "author": "Dan Brown",
         "genre": "thriller",
@@ -176,7 +160,6 @@
         "isbn": "978-0385504201"
     },
     {
-        "id": 17,
         "title": "Gone Girl",
         "author": "Gillian Flynn",
         "genre": "thriller",
@@ -187,7 +170,6 @@
         "isbn": "978-0307588371"
     },
     {
-        "id": 18,
         "title": "The Shining",
         "author": "Stephen King",
         "genre": "horror",
@@ -198,7 +180,6 @@
         "isbn": "978-0307743657"
     },
     {
-        "id": 19,
         "title": "Dracula",
         "author": "Bram Stoker",
         "genre": "horror",
@@ -209,7 +190,6 @@
         "isbn": "978-0486282140"
     },
     {
-        "id": 20,
         "title": "The Hitchhiker's Guide to the Galaxy",
         "author": "Douglas Adams",
         "genre": "science-fiction",
@@ -220,7 +200,6 @@
         "isbn": "978-0345391803"
     },
     {
-        "id": 21,
         "title": "Dune",
         "author": "Frank Herbert",
         "genre": "science-fiction",
@@ -231,7 +210,6 @@
         "isbn": "978-0441013593"
     },
     {
-        "id": 22,
         "title": "Brave New World",
         "author": "Aldous Huxley",
         "genre": "science-fiction",
@@ -242,7 +220,6 @@
         "isbn": "978-0060850524"
     },
     {
-        "id": 23,
         "title": "The Road",
         "author": "Cormac McCarthy",
         "genre": "fiction",
@@ -253,7 +230,6 @@
         "isbn": "978-0307387899"
     },
     {
-        "id": 24,
         "title": "Sapiens: A Brief History of Humankind",
         "author": "Yuval Noah Harari",
         "genre": "non-fiction",
@@ -264,7 +240,6 @@
         "isbn": "978-0062316110"
     },
     {
-        "id": 25,
         "title": "The Art of War",
         "author": "Sun Tzu",
         "genre": "non-fiction",
@@ -275,7 +250,6 @@
         "isbn": "978-1590302255"
     },
     {
-        "id": 26,
         "title": "The Name of the Wind",
         "author": "Patrick Rothfuss",
         "genre": "fantasy",
@@ -286,7 +260,6 @@
         "isbn": "978-0756404741"
     },
     {
-        "id": 27,
         "title": "The Hobbit",
         "author": "J.R.R. Tolkien",
         "genre": "fantasy",
@@ -297,7 +270,6 @@
         "isbn": "978-0547928227"
     },
     {
-        "id": 28,
         "title": "Sherlock Holmes: The Complete Collection",
         "author": "Arthur Conan Doyle",
         "genre": "mystery",
@@ -308,7 +280,6 @@
         "isbn": "978-1453280551"
     },
     {
-        "id": 29,
         "title": "The Girl with the Dragon Tattoo",
         "author": "Stieg Larsson",
         "genre": "mystery",
@@ -319,7 +290,6 @@
         "isbn": "978-0307454546"
     },
     {
-        "id": 30,
         "title": "Pride and Prejudice",
         "author": "Jane Austen",
         "genre": "romance",

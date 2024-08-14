@@ -27,7 +27,7 @@ Transfer.belongsTo(Branch, { as: 'toBranch', foreignKey: 'toBranchId' });
 Transfer.belongsTo(Book, { foreignKey: 'bookId' });
 
 // Sync models (optional, use only in development)
-sequelize.sync({force: true}).catch(()=> null);
+// sequelize.sync({ force: true }).catch(() => null);
 
 module.exports = {
     User,

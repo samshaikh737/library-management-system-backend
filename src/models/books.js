@@ -41,7 +41,7 @@ const Book = sequelize.define('Book', {
         allowNull: false
     }
 }, {
-    tableName: 'Bookes' // Specify the table name
+    tableName: 'Books' // Specify the table name
 });
 
 module.exports = Book;
