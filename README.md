@@ -125,3 +125,15 @@ Run using npm.
 ```
 
 The backend server should now be running on http://localhost:5001
+
+
+## Deploy
+
+Here is API Documention
+
+ - [View Documention](https://documenter.getpostman.com/view/29024313/2sA3s6GA5Z#intro)
+
+
+#### Demo Video
+
+ - [View Video](https://www.youtube.com/watch?v=5jzyFNtQpyo)
