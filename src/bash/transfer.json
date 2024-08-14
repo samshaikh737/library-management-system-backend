@@ -1,0 +1,16 @@
+[
+    {
+        "bookId": 1,
+        "fromBranchId": 1,
+        "toBranchId": 4,
+        "quantity": 5,
+        "transferDate": "2024-08-14T14:14:04.191Z"
+    },
+    {
+        "bookId": 6,
+        "fromBranchId": 6,
+        "toBranchId": 1,
+        "quantity": 5,
+        "transferDate": "2024-08-14T14:15:06.742Z"
+    }
+]

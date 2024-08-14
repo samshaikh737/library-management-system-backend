@@ -1,0 +1,26 @@
+[
+    {
+        "bookId": 9,
+        "userId": 2,
+        "branchId": 5,
+        "checkoutDate": "2024-08-25T14:05:00.000Z",
+        "returnDate": null,
+        "status": "checked_out"
+    },
+    {
+        "bookId": 4,
+        "userId": 1,
+        "branchId": 1,
+        "checkoutDate": "2024-08-01T14:08:00.000Z",
+        "returnDate": null,
+        "status": "checked_out"
+    },
+    {
+        "bookId": 2,
+        "userId": 1,
+        "branchId": 1,
+        "checkoutDate": "2024-08-14T14:05:00.000Z",
+        "returnDate": "2024-08-16T14:12:00.000Z",
+        "status": "returned"
+    }
+]

@@ -15,6 +15,8 @@ db.sync({ alter: true }).then(() => {
     const Branch = require("../models/branch");
     const Book = require("../models/books");
     const User = require("../models/user");
+    const Checkout = require("../models/checkout");
+    const Transfer = require("../models/transfer");
 
 
 
@@ -50,6 +52,22 @@ db.sync({ alter: true }).then(() => {
             console.log('User has been imported successfully.');
 
 
+            // Read and parse the JSON file
+            const checkoutPath = path.join(__dirname, 'checkouts.json');
+            const checkoutData = JSON.parse(fs.readFileSync(checkoutPath, 'utf8'));
+
+            // Insert data into the database
+            await Checkout.bulkCreate(checkoutData);
+            console.log('Checkout has been imported successfully.');
+
+
+            // Read and parse the JSON file
+            const transferPath = path.join(__dirname, 'transfer.json');
+            const transferData = JSON.parse(fs.readFileSync(transferPath, 'utf8'));
+
+            // Insert data into the database
+            await Transfer.bulkCreate(transferData);
+            console.log('Transfer has been imported successfully.');
 
         } catch (error) {
             console.error('Error importing data:', error);
