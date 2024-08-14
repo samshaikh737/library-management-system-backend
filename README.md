@@ -98,6 +98,24 @@ If you need to perform additional operations, access the PostgreSQL shell:
   docker exec -it my_postgres_db psql -U my_postgres_db -d library_db
 ```
 
+## Database Migrations
+
+- Run the following command to execute the migrations:
+
+
+``` bash
+  npm run migration
+```
+
+#### Importing Data:
+- After running the migrations, you can import data into the database. To do so, execute the following command:
+
+``` bash
+  npm run import
+```
+
+
+
 ## Run Locally
 
 Run using npm.
