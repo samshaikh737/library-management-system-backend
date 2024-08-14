@@ -40,7 +40,7 @@ Create a `config.env` file in the src/config/config.env directory and add the fo
   DB_NAME=library_db
   DB_USER=
   DB_PASSWORD=
-  PORT=3000
+  PORT=5001
 
 ```
 
@@ -106,4 +106,4 @@ Run using npm.
   npm run dev
 ```
 
-The backend server should now be running on http://localhost:3000
+The backend server should now be running on http://localhost:5001
