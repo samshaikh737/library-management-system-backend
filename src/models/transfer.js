@@ -34,6 +34,8 @@ const Transfer = sequelize.define('Transfer', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
     },
+}, {
+    tableName: 'Transfers' // Specify the table name
 });
 
 module.exports = Transfer;

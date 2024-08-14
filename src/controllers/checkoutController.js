@@ -1,8 +1,9 @@
 const checkoutService = require('../services/checkoutService');
 const { validateCreateCheckout, validateUpdateCheckout } = require('../validations/checkoutValidation');
 const ApiError = require('../utils/ApiError');
+const asyncHandler = require('../middleware/asyncHandler');
 
-const getAllCheckouts = async (req, res) => {
+const getAllCheckouts = asyncHandler(async (req, res) => {
     try {
         const filters = req.query; // Extract query parameters for filtering
         const checkouts = await checkoutService.getAllCheckouts(filters); // Ensure service method handles filters
@@ -10,18 +11,18 @@ const getAllCheckouts = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const getCheckoutById = async (req, res) => {
+const getCheckoutById = asyncHandler(async (req, res) => {
     try {
         const checkout = await checkoutService.getCheckoutById(req.params.id);
         res.status(200).json(checkout);
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const createCheckout = async (req, res) => {
+const createCheckout = asyncHandler(async (req, res) => {
     try {
         const { error } = validateCreateCheckout(req.body);
         if (error) {
@@ -32,9 +33,9 @@ const createCheckout = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const updateCheckout = async (req, res) => {
+const updateCheckout = asyncHandler(async (req, res) => {
     try {
         const { error } = validateUpdateCheckout(req.body);
         if (error) {
@@ -45,8 +46,10 @@ const updateCheckout = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
-const returnCheckout = async (req, res) => {
+});
+
+
+const returnCheckout = asyncHandler(async (req, res) => {
     try {
         const { error } = validateUpdateCheckout(req.body);
         if (error) {
@@ -57,15 +60,16 @@ const returnCheckout = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
-const deleteCheckout = async (req, res) => {
+});
+
+const deleteCheckout = asyncHandler(async (req, res) => {
     try {
         await checkoutService.deleteCheckout(req.params.id);
         res.status(204).end();
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
 module.exports = {
     getAllCheckouts,

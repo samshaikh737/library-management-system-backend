@@ -40,6 +40,8 @@ const Book = sequelize.define('Book', {
         // unique: true, // Ensure ISBN is unique
         allowNull: false
     }
+}, {
+    tableName: 'Bookes' // Specify the table name
 });
 
 module.exports = Book;

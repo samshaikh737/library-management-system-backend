@@ -25,6 +25,8 @@ const Branch = sequelize.define('Branch', {
     phone: {
         type: DataTypes.STRING
     }
+}, {
+    tableName: 'Branches' // Specify the table name
 });
 
 module.exports = Branch;

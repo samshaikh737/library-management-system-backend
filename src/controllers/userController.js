@@ -1,8 +1,9 @@
 const userService = require('../services/userService');
 const { validateCreateUser, validateUpdateUser } = require('../validations/userValidation');
 const ApiError = require('../utils/ApiError');
+const asyncHandler = require('../middleware/asyncHandler');
 
-const getAllUsers = async (req, res) => {
+const getAllUsers = asyncHandler(async (req, res) => {
     try {
         const filters = req.query; // Extract filters from query parameters
         const users = await userService.getAllUsers(filters);
@@ -10,18 +11,18 @@ const getAllUsers = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const getUserById = async (req, res) => {
+const getUserById = asyncHandler(async (req, res) => {
     try {
         const user = await userService.getUserById(req.params.id);
         res.status(200).json(user);
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const createUser = async (req, res) => {
+const createUser = asyncHandler(async (req, res) => {
     try {
         const { error } = validateCreateUser(req.body);
         if (error) {
@@ -32,9 +33,9 @@ const createUser = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const updateUser = async (req, res) => {
+const updateUser = asyncHandler(async (req, res) => {
     try {
         const { error } = validateUpdateUser(req.body);
         if (error) {
@@ -45,16 +46,16 @@ const updateUser = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const deleteUser = async (req, res) => {
+const deleteUser = asyncHandler(async (req, res) => {
     try {
         await userService.deleteUser(req.params.id);
         res.status(204).end();
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
 module.exports = {
     getAllUsers,

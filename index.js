@@ -1,38 +1,46 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
+const chalk = require("chalk");
 const dotenv = require("dotenv");
 dotenv.config({ path: "src/config/config.env" });
 
-// Middleware setup
-app.use(bodyParser.json({ limit: '2gb' }));
-app.use(bodyParser.urlencoded({ limit: '2gb', extended: true }));
-app.use(cors());
 
-// <---------------------------------------------- Logging Middleware ------------------------------------------------->
-const morgan = require("morgan");
-app.use(morgan('dev'));
-// <---------------------------------------------- main route setup --------------------------------------------------->
-const apiRoutes = require('./src/routes');
+// <--------------------------------------------- Database connect --------------------------------------------------->
+require('./src/config/database').sync({ alter: true }).then(async () => {
+  console.log(
+    chalk.greenBright.bold(
+      `Database connected`
+    )
+  );
 
-// Use routes
-app.use('/api/v1', apiRoutes);
+  const { app } = require("./app");
 
-// Health check
-app.get('/', (req, res) => res.status(200).send('Hello world'));
+  // <--------------------------------------------- Express App setup --------------------------------------------------->
+  const PORT = process.env.PORT || 3000;
+  const server = app.listen(PORT, async () => {
+    console.log(
+      chalk.yellowBright.bold(
+        `Server is running on PORT: ${PORT}`
+      )
+    );
+  });
 
-// <------------------------------------------------ error handler ---------------------------------------------------->
-const errorHandler = require("./src/middleware/errorHandler");
-app.use(errorHandler);
+  // // <---------------------------------------- Handle unhandled Promise rejections -------------------------------------->
+  process.on("unhandledRejection", (err) => {
+    console.log(chalk.bold.redBright(`Error: ${err.message}`));
+    console.log(err);
+    server.close(() => {
+      console.log(
+        chalk.bold.redBright(
+          "Server closed due to unhandled promise rejection"
+        )
+      );
+      process.exit(1);
+    });
+  });
+}).catch(() => {
+  console.log(
+    chalk.bold.redBright(
+      "Error: Datababse not connected!"
+    )
+  );
+})
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, async () => {
-  try {
-    await require('./src/config/database').sync({ alter: true }); // Sync models with the database
-    console.log(`Server running on port ${PORT}`);
-  } catch (err) {
-    console.error('Unable to connect to the database:', err);
-  }
-});

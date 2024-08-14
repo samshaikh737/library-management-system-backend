@@ -1,0 +1,182 @@
+[
+    {
+        "id": 1,
+        "name": "Central Library",
+        "address": "123 MG Road",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "zipCode": "400001",
+        "phone": "022-12345678"
+    },
+    {
+        "id": 2,
+        "name": "South Branch",
+        "address": "456 Anna Salai",
+        "city": "Chennai",
+        "state": "Tamil Nadu",
+        "zipCode": "600002",
+        "phone": "044-23456789"
+    },
+    {
+        "id": 3,
+        "name": "East Branch",
+        "address": "789 Park Street",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "zipCode": "700016",
+        "phone": "033-34567890"
+    },
+    {
+        "id": 4,
+        "name": "North Branch",
+        "address": "101 Rajpath",
+        "city": "New Delhi",
+        "state": "Delhi",
+        "zipCode": "110001",
+        "phone": "011-45678901"
+    },
+    {
+        "id": 5,
+        "name": "West Branch",
+        "address": "202 Ashram Road",
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "zipCode": "380009",
+        "phone": "079-56789012"
+    },
+    {
+        "id": 6,
+        "name": "Uptown Branch",
+        "address": "303 Brigade Road",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "zipCode": "560001",
+        "phone": "080-67890123"
+    },
+    {
+        "id": 7,
+        "name": "Downtown Branch",
+        "address": "404 Abids Road",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "zipCode": "500001",
+        "phone": "040-78901234"
+    },
+    {
+        "id": 8,
+        "name": "Liberty Branch",
+        "address": "505 Residency Road",
+        "city": "Lucknow",
+        "state": "Uttar Pradesh",
+        "zipCode": "226001",
+        "phone": "0522-89012345"
+    },
+    {
+        "id": 9,
+        "name": "Main Branch",
+        "address": "606 Ashok Nagar",
+        "city": "Patna",
+        "state": "Bihar",
+        "zipCode": "800001",
+        "phone": "0612-90123456"
+    },
+    {
+        "id": 10,
+        "name": "Park Branch",
+        "address": "707 Civil Lines",
+        "city": "Jaipur",
+        "state": "Rajasthan",
+        "zipCode": "302001",
+        "phone": "0141-01234567"
+    },
+    {
+        "id": 11,
+        "name": "Seaside Branch",
+        "address": "808 Beach Road",
+        "city": "Goa",
+        "state": "Goa",
+        "zipCode": "403001",
+        "phone": "0832-12345678"
+    },
+    {
+        "id": 12,
+        "name": "Hilltop Branch",
+        "address": "909 Ridge Road",
+        "city": "Shimla",
+        "state": "Himachal Pradesh",
+        "zipCode": "171001",
+        "phone": "0177-23456789"
+    },
+    {
+        "id": 13,
+        "name": "Riverbank Branch",
+        "address": "1010 Ganga Road",
+        "city": "Varanasi",
+        "state": "Uttar Pradesh",
+        "zipCode": "221001",
+        "phone": "0542-34567890"
+    },
+    {
+        "id": 14,
+        "name": "Old Town Branch",
+        "address": "1111 Temple Street",
+        "city": "Madurai",
+        "state": "Tamil Nadu",
+        "zipCode": "625001",
+        "phone": "0452-45678901"
+    },
+    {
+        "id": 15,
+        "name": "Greenfield Branch",
+        "address": "1212 Green Park",
+        "city": "Gurugram",
+        "state": "Haryana",
+        "zipCode": "122001",
+        "phone": "0124-56789012"
+    },
+    {
+        "id": 16,
+        "name": "Market Branch",
+        "address": "1313 Market Street",
+        "city": "Surat",
+        "state": "Gujarat",
+        "zipCode": "395001",
+        "phone": "0261-67890123"
+    },
+    {
+        "id": 17,
+        "name": "Industrial Branch",
+        "address": "1414 Industrial Area",
+        "city": "Pune",
+        "state": "Maharashtra",
+        "zipCode": "411001",
+        "phone": "020-78901234"
+    },
+    {
+        "id": 18,
+        "name": "Highway Branch",
+        "address": "1515 Highway Road",
+        "city": "Chandigarh",
+        "state": "Chandigarh",
+        "zipCode": "160001",
+        "phone": "0172-89012345"
+    },
+    {
+        "id": 19,
+        "name": "Garden Branch",
+        "address": "1616 Garden Lane",
+        "city": "Indore",
+        "state": "Madhya Pradesh",
+        "zipCode": "452001",
+        "phone": "0731-90123456"
+    },
+    {
+        "id": 20,
+        "name": "Palace Branch",
+        "address": "1717 Palace Road",
+        "city": "Mysore",
+        "state": "Karnataka",
+        "zipCode": "570001",
+        "phone": "0821-01234567"
+    }
+]

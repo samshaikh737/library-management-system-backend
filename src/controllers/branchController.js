@@ -2,8 +2,9 @@ const branchService = require('../services/branchService');
 const { validateCreateBranch, validateUpdateBranch } = require('../validations/branchValidation');
 const ApiError = require('../utils/ApiError');
 const { Op } = require('sequelize');
+const asyncHandler = require('../middleware/asyncHandler');
 
-const getAllBranches = async (req, res) => {
+const getAllBranches = asyncHandler(async (req, res) => {
     try {
         // Extract query parameters
         const { name,city, state, zipCode, address } = req.query;
@@ -22,18 +23,18 @@ const getAllBranches = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const getBranchById = async (req, res) => {
+const getBranchById = asyncHandler(async (req, res) => {
     try {
         const branch = await branchService.getBranchById(req.params.id);
         res.status(200).json(branch);
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const createBranch = async (req, res) => {
+const createBranch = asyncHandler(async (req, res) => {
     try {
         const { error } = validateCreateBranch(req.body);
         if (error) {
@@ -44,9 +45,9 @@ const createBranch = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const updateBranch = async (req, res) => {
+const updateBranch =  asyncHandler(async (req, res) => {
     try {
         const { error } = validateUpdateBranch(req.body);
         if (error) {
@@ -57,16 +58,16 @@ const updateBranch = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const deleteBranch = async (req, res) => {
+const deleteBranch = asyncHandler(async (req, res) => {
     try {
         await branchService.deleteBranch(req.params.id);
         res.status(204).end();
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
 module.exports = {
     getAllBranches,

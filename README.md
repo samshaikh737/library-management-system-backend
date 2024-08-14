@@ -54,7 +54,7 @@ If PostgreSQL is already installed on your local machine, follow these steps:
 - Open your terminal and run the following command to log in to PostgreSQL:
 
 ``` bash
-  psql -U my_postgres_db
+  psql -U postgres_user
 ```
 You'll be prompted to enter the password (mysecretpassword) or your db password.
 

@@ -1,9 +1,9 @@
 const transferService = require('../services/transferService');
 const ApiError = require('../utils/ApiError');
 const { validateCreateTranfer } = require('../validations/transferValidation');
+const asyncHandler = require('../middleware/asyncHandler');
 
-
-const getAllTransfers = async (req, res) => {
+const getAllTransfers = asyncHandler(async (req, res) => {
     try {
         const filters = req.query;
         const transfers = await transferService.getAllTransfers(filters);
@@ -11,9 +11,9 @@ const getAllTransfers = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-};
+});
 
-const createTransfer = async (req, res) => {
+const createTransfer = asyncHandler(async (req, res) => {
     try {
         const { error } = validateCreateTranfer(req.body);
         if (error) {
@@ -24,9 +24,9 @@ const createTransfer = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const updateTransfer = async (req, res) => {
+const updateTransfer = asyncHandler(async (req, res) => {
     const { id } = req.params;
     try {
         const { error } = validateCreateTranfer(req.body);
@@ -38,9 +38,9 @@ const updateTransfer = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const deleteTransfer = async (req, res) => {
+const deleteTransfer = asyncHandler(async (req, res) => {
     const { id } = req.params;
     try {
         await transferService.deleteTransfer(id);
@@ -48,7 +48,7 @@ const deleteTransfer = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
 module.exports = {
     getAllTransfers,

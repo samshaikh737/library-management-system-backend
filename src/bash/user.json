@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Amitabh Bachchan",
+        "email": "amitabh.bachchan@example.com",
+        "phone": "9876543210",
+        "role": "member",
+        "branchId": 1
+    },
+    {
+        "id": 2,
+        "name": "Shah Rukh Khan",
+        "email": "shah.rukh.khan@example.com",
+        "phone": "9123456789",
+        "role": "member",
+        "branchId": 2
+    },
+    {
+        "id": 3,
+        "name": "Deepika Padukone",
+        "email": "deepika.padukone@example.com",
+        "phone": "9012345678",
+        "role": "member",
+        "branchId": 3
+    },
+    {
+        "id": 4,
+        "name": "Priyanka Chopra",
+        "email": "priyanka.chopra@example.com",
+        "phone": "9876504321",
+        "role": "member",
+        "branchId": 4
+    },
+    {
+        "id": 5,
+        "name": "Narendra Modi",
+        "email": "narendra.modi@example.com",
+        "phone": "9192837465",
+        "role": "member",
+        "branchId": 5
+    },
+    {
+        "id": 6,
+        "name": "Indira Gandhi",
+        "email": "indira.gandhi@example.com",
+        "phone": "9234567890",
+        "role": "librarian",
+        "branchId": 6
+    },
+    {
+        "id": 7,
+        "name": "Dr. A.P.J. Abdul Kalam",
+        "email": "apj.kalam@example.com",
+        "phone": "9345678901",
+        "role": "librarian",
+        "branchId": 7
+    },
+    {
+        "id": 8,
+        "name": "Ratan Tata",
+        "email": "ratan.tata@example.com",
+        "phone": "9456789012",
+        "role": "librarian",
+        "branchId": 8
+    },
+    {
+        "id": 9,
+        "name": "Sundar Pichai",
+        "email": "sundar.pichai@example.com",
+        "phone": "9567890123",
+        "role": "librarian",
+        "branchId": 9
+    },
+    {
+        "id": 10,
+        "name": "Mukesh Ambani",
+        "email": "mukesh.ambani@example.com",
+        "phone": "9678901234",
+        "role": "librarian",
+        "branchId": 10
+    }
+]

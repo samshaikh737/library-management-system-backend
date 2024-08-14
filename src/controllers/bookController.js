@@ -2,8 +2,9 @@ const bookService = require('../services/bookService');
 const { validateCreateBook, validateUpdateBook } = require('../validations/bookValidation');
 const ApiError = require('../utils/ApiError');
 const { Op } = require('sequelize');
+const asyncHandler = require('../middleware/asyncHandler');
 
-const getAllBooks = async (req, res) => {
+const getAllBooks = asyncHandler(async (req, res) => {
     try {
         // Extract query parameters
         const { title, author, genre, currentBranch, status } = req.query;
@@ -21,18 +22,18 @@ const getAllBooks = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const getBookById = async (req, res) => {
+const getBookById = asyncHandler(async (req, res) => {
     try {
         const book = await bookService.getBookById(req.params.id);
         res.status(200).json(book);
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const createBook = async (req, res) => {
+const createBook = asyncHandler(async (req, res) => {
     try {
         const { error } = validateCreateBook(req.body);
         if (error) {
@@ -43,9 +44,9 @@ const createBook = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const updateBook = async (req, res) => {
+const updateBook = asyncHandler(async (req, res) => {
     try {
         const { error } = validateUpdateBook(req.body);
         if (error) {
@@ -56,16 +57,16 @@ const updateBook = async (req, res) => {
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
-const deleteBook = async (req, res) => {
+const deleteBook = asyncHandler(async (req, res) => {
     try {
         await bookService.deleteBook(req.params.id);
         res.status(204).end();
     } catch (error) {
         res.status(error.statusCode || 500).json({ error: error.message });
     }
-};
+});
 
 module.exports = {
     getAllBooks,

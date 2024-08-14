@@ -38,6 +38,8 @@ const Checkout = sequelize.define('Checkout', {
         type: DataTypes.ENUM('checked_out', 'returned'),
         allowNull: false
     }
+}, {
+    tableName: 'Checkouts' // Specify the table name
 });
 
 module.exports = Checkout;
